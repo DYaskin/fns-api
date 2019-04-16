@@ -1,13 +1,92 @@
 package com.github.mejiomah17.fns.api;
 
+import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
+import io.jsondb.annotation.Document;
+import io.jsondb.annotation.Id;
 
+@Document(collection = "receipts", schemaVersion= "1.0")
 public class Receipt {
 
-    @SerializedName("ecashTotalSum")
+   
+
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Receipt [ecashTotalSum=");
+		builder.append(ecashTotalSum);
+		builder.append(", userInn=");
+		builder.append(userInn);
+		builder.append(", items=");
+		builder.append(items);
+		builder.append(", requestNumber=");
+		builder.append(requestNumber);
+		builder.append(", provisionSum=");
+		builder.append(provisionSum);
+		builder.append(", fiscalSign=");
+		builder.append(fiscalSign);
+		builder.append(", fiscalDocumentNumber=");
+		builder.append(fiscalDocumentNumber);
+		builder.append(", operationType=");
+		builder.append(operationType);
+		builder.append(", taxationType=");
+		builder.append(taxationType);
+		builder.append(", messageFiscalSign=");
+		builder.append(messageFiscalSign);
+		builder.append(", fiscalDriveNumber=");
+		builder.append(fiscalDriveNumber);
+		builder.append(", machineNumber=");
+		builder.append(machineNumber);
+		builder.append(", cashTotalSum=");
+		builder.append(cashTotalSum);
+		builder.append(", internetSign=");
+		builder.append(internetSign);
+		builder.append(", shiftNumber=");
+		builder.append(shiftNumber);
+		builder.append(", operator=");
+		builder.append(operator);
+		builder.append(", retailPlace=");
+		builder.append(retailPlace);
+		builder.append(", retailPlaceAddress=");
+		builder.append(retailPlaceAddress);
+		builder.append(", dateTime=");
+		builder.append(dateTime);
+		builder.append(", ndsNo=");
+		builder.append(ndsNo);
+		builder.append(", totalSum=");
+		builder.append(totalSum);
+		builder.append(", fiscalDocumentFormatVer=");
+		builder.append(fiscalDocumentFormatVer);
+		//builder.append(", rawData=");
+		//builder.append(rawData);
+		builder.append(", prepaidSum=");
+		builder.append(prepaidSum);
+		builder.append(", paymentAgentType=");
+		builder.append(paymentAgentType);
+		builder.append(", sellerAddress=");
+		builder.append(sellerAddress);
+		builder.append(", propertiesUser=");
+		builder.append(propertiesUser);
+		builder.append(", fnsSite=");
+		builder.append(fnsSite);
+		builder.append(", user=");
+		builder.append(user);
+		builder.append(", receiptCode=");
+		builder.append(receiptCode);
+		builder.append(", creditSum=");
+		builder.append(creditSum);
+		builder.append(", kktRegId=");
+		builder.append(kktRegId);
+		builder.append(", buyerAddress=");
+		builder.append(buyerAddress);
+		builder.append("]");
+		return builder.toString();
+	}
+
+	@SerializedName("ecashTotalSum")
     @Expose
     private int ecashTotalSum;
     @SerializedName("userInn")
@@ -24,7 +103,7 @@ public class Receipt {
     private int provisionSum;
     @SerializedName("fiscalSign")
     @Expose
-    private int fiscalSign;
+    private long fiscalSign;
     @SerializedName("fiscalDocumentNumber")
     @Expose
     private int fiscalDocumentNumber;
@@ -39,6 +118,7 @@ public class Receipt {
     private long messageFiscalSign;
     @SerializedName("fiscalDriveNumber")
     @Expose
+    @Id
     private String fiscalDriveNumber;
     @SerializedName("machineNumber")
     @Expose
@@ -58,6 +138,9 @@ public class Receipt {
     @SerializedName("retailPlace")
     @Expose
     private String retailPlace;
+    @SerializedName("retailPlaceAddress")
+    @Expose
+    private String retailPlaceAddress;
     @SerializedName("dateTime")
     @Expose
     private String dateTime;
@@ -144,13 +227,10 @@ public class Receipt {
         this.provisionSum = provisionSum;
     }
 
-    public int getFiscalSign() {
+    public long getFiscalSign() {
         return fiscalSign;
     }
 
-    public void setFiscalSign(int fiscalSign) {
-        this.fiscalSign = fiscalSign;
-    }
 
     public int getFiscalDocumentNumber() {
         return fiscalDocumentNumber;
@@ -240,7 +320,19 @@ public class Receipt {
         this.retailPlace = retailPlace;
     }
 
-    public String getDateTime() {
+    public String getRetailPlaceAddress() {
+		return retailPlaceAddress;
+	}
+
+	public void setRetailPlaceAddress(String retailPlaceAddress) {
+		this.retailPlaceAddress = retailPlaceAddress;
+	}
+
+	public void setFiscalSign(long fiscalSign) {
+		this.fiscalSign = fiscalSign;
+	}
+
+	public String getDateTime() {
         return dateTime;
     }
 

@@ -5,7 +5,13 @@ import com.google.gson.annotations.SerializedName;
 
 public class Item {
 
-    @SerializedName("name")
+    @Override
+	public String toString() {
+		return "Item [name=" + name + ", nds=" + nds + ", sum=" + sum + ", quantity=" + quantity + ", paymentType="
+				+ paymentType + ", price=" + price + "]";
+	}
+
+	@SerializedName("name")
     @Expose
     private String name;
     @SerializedName("nds")
@@ -16,7 +22,7 @@ public class Item {
     private int sum;
     @SerializedName("quantity")
     @Expose
-    private int quantity;
+    private double quantity;
     @SerializedName("paymentType")
     @Expose
     private int paymentType;
@@ -48,11 +54,11 @@ public class Item {
         this.sum = sum;
     }
 
-    public int getQuantity() {
+    public double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
 

@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Properties;
 
 public class FNS {
-    private static HttpClient httpclient = HttpClients.createMinimal();
+    private static HttpClient httpclient = HttpClients.createDefault();
     private static final String LOGIN_PATH = "/v1/mobile/users/login";
     private static final String RESTORE_PATH = "v1/mobile/users/restore";
     private static final String SIGN_UP = "/v1/mobile/users/signup";
@@ -163,7 +163,7 @@ public class FNS {
         checkProperties(properties, "fn", "i", "fp", "t", "s");
         return isCheckExist(login, password, properties.getProperty("fn"),
                 properties.getProperty("i"), properties.getProperty("fp"),
-                properties.getProperty("t"), properties.getProperty("s").replaceAll(".", ""));
+                properties.getProperty("t"), properties.getProperty("s").replace(".", ""));
 
 
     }
@@ -192,7 +192,7 @@ public class FNS {
         }
         return getCheck(login, password, properties.getProperty("fn"),
                 properties.getProperty("i"), properties.getProperty("fp"),
-                properties.getProperty("t"), properties.getProperty("s").replaceAll("\\.", ""));
+                properties.getProperty("t"), properties.getProperty("s").replace(".", ""));
     }
 
     /**
@@ -219,7 +219,7 @@ public class FNS {
         params.add(new BasicNameValuePair("sendToEmail", "no"));
         createGet(path, login, password, params).getURI();
         HttpResponse response = httpclient.execute(createGet(path, login, password, params));
-        if (response.getStatusLine().getStatusCode() != 200) {
+        if (response.getStatusLine().getStatusCode() > 202) {
             if (response.getStatusLine().getStatusCode() == 403) {
                 throw new UserDoesNotExistException();
             } else if (response.getStatusLine().getStatusCode() == 406) {

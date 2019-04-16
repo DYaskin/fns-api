@@ -17,4 +17,9 @@ public class Document {
         this.receipt = receipt;
     }
 
+	@Override
+	public String toString() {
+		return "Document [receipt=" + receipt + "]";
+	}
+
 }

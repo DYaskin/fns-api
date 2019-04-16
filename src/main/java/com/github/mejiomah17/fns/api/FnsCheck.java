@@ -17,6 +17,11 @@ public class FnsCheck {
         this.document = document;
     }
 
+	@Override
+	public String toString() {
+		return "FnsCheck [document=" + document + "]";
+	}
+
 }
 
 
