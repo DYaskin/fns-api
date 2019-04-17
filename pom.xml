@@ -5,6 +5,9 @@
 	<groupId>fns-api</groupId>
 	<artifactId>fns-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<properties>
+    		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/com.google.code.gson/gson -->
 		<dependency>
